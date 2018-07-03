@@ -1,15 +1,15 @@
 <?php
 session_start();
-    $saldo= isset($_session["saldo"])? $_session["saldo"]:50;
-    $opera= isset($_session["opera"])? $_session["opera"]:0;
-    $valor= isset($_session["valor"])? $_session["valor"]:0;
+    $saldo= isset($_SESSION["saldo"])? $_SESSION["saldo"]:0;
+    $opera= isset($_GET["opera"])? $_GET["opera"]:0;
+    $valor= isset($_GET["valor"])? $_GET["valor"]:0;
 
     if($opera == "debito"){
         $saldo = $saldo - $valor;
     }else if($opera == "credito"){
         $saldo = $saldo + $valor;
     }
-    $_session["saldo"] = $saldo;
+    $_SESSION["saldo"] = $saldo;
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,13 +19,13 @@ session_start();
 	<script type="text/javascript" src="nome.js"></script>
 	<meta charset="utf-8">
 </head>
-<body onload="onLoaded()">
+<body>
 	<header>
 		<div id="mensagemBemVindo">
 			Bem-vindo (a), <span id="nome_usuario">fulano</span>.
 		</div>
 			<div id="saldoAtual">
-				<h3>Saldo atual é: R$<?php echo $valor ,","; ?></h3>
+				<h3>Saldo atual é: R$<?php echo $saldo; ?></h3>
 			</div>
 		</div>
 	</header>
@@ -38,23 +38,21 @@ session_start();
 
 					<fieldset id="debOrCred" >
 						<legend>Operação</legend>
-						<input type="radio" name="opera" value="deb" checked>Débito <br>
-						<input type="radio" name="opera" value="cred">Crédito <br>
+						<input type="radio" name="opera" value="debito" checked>Débito <br>
+						<input type="radio" name="opera" value="credito">Crédito <br>
 					</fieldset>
-			</form>
-			<form>
 					<fieldset>
 							<legend>Valor (R$)</legend>
-							<input type="number" name="" id="valor"<?php echo $valor ,","; ?>>
+							<input type="number" name="valor" id="valor"<?php echo $valor; ?>>
 					</fieldset>
 					<br>
 					<input type="submit" name="operacao" value="Realizar Operacao" />
 					
-					<input type="button" value="Atualizar Saldo">
+					<input type="button" value="Atualizar Saldo" onclick="location = location.pathname;">
 				</fieldset>
 			</form>
 			<form>
-				<h3> Seu novo saldo é: R$<?php echo $saldo ,",";?></h3>
+				<h3> Seu novo saldo é: R$<?php echo $saldo;?></h3>
 			</form>
 		</div>
 		<p>Dupla: ARYANE GABRIELLE CARDOSO E CAROLAINE LOPES.</p>
