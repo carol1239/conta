@@ -1,0 +1,67 @@
+*{
+    font-family: verdana;
+}
+
+body{
+
+}
+
+#saldoAtual{
+
+        width: 250px;
+    border-radius: 9px;
+    position: relative;
+    left: 41%;
+    top: -15px;
+    margin: 0;
+    padding-left: 5px;
+}
+
+#operacao{
+    width: 600px;
+}
+
+#formOperacao{
+    margin-top: 15px;
+}
+
+#debOrCred{
+
+    width: 40%;
+    float: left;
+}
+
+#depValor{
+
+}
+
+#valor{
+    width: 100px;
+}
+
+fieldset{
+    border-radius: 9px;
+}
+
+#depSuce{
+    background-color: chartreuse;
+    width: 250px;
+    border-radius: 9px;
+
+    left: 41%;
+    top: -15px;
+    margin: 0;
+    padding-left: 5px;
+}
+
+#customers{
+    width: 500px;
+    border-style: unset;
+    text-align: center;
+}
+
+#mensagemBemVindo{
+    text-align: center;
+    font-size: 15pt;
+    font-weight: bold;
+}
